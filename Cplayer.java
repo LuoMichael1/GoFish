@@ -10,14 +10,16 @@ class Cplayer extends Player {
 	}
 	
 	public void showhand() {
-		// hand is visible for debugging
-		for (int i=0; i<getNumCards(); i++) {
-		System.out.print(Deck.convertID(hand[i]));
-		}
 		
-		//for (int i=0; i<getNumCards(); i++) {
-		//	System.out.print("[?] ");
-		//}
+		// hand is visible for debugging
+		if (GoFish.debuggingmode) {
+			for (int i=0; i<getNumCards(); i++) {
+				System.out.print(Deck.convertID(hand[i]));
+			} }
+		else {
+			for (int i=0; i<getNumCards(); i++) {
+				System.out.print("[?]");
+			} }
 	}
 	
 	public int ask() {

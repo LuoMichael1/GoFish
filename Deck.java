@@ -7,7 +7,8 @@ class Deck {
 	private String full_deck = "";
 	private int cardsleft = 52;
 	private int deck[] = new int[52];
-	
+	private boolean reveal = true;
+
 	static public final int UNIQUECARDNUMS = 13;
 		
 	public Deck() {
@@ -91,9 +92,25 @@ class Deck {
 	
 	public String toString() {
 		full_deck="";
-		for (int i=0; i<cardsleft; i++) {
-			full_deck += convertID(deck[i]);
+		if (GoFish.debuggingmode || reveal) {
+			for (int i=0; i<cardsleft; i++) {
+				full_deck += convertID(deck[i]);
+
+				if ((i+1)%13 == 0){
+					full_deck += "\n";
+				}
+			}
+			reveal = false;
 		}
+		else {
+			for (int i=0; i<cardsleft; i++) {
+				full_deck += "[?]";
+				if ((i+1)%13 == 0){
+					full_deck += "\n";
+				}
+			}
+		}
+		
 		return full_deck;
-	}		
+	}	
 }

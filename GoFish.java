@@ -4,6 +4,9 @@
 
 class GoFish {
 	
+	// debugging mode - reveals the computer's and deck's cards
+	public static boolean debuggingmode = false;
+
 	// print
 	public static void pr(String text){
 		System.out.println(text);
