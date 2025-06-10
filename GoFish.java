@@ -11,6 +11,7 @@ class GoFish {
 	
 	
 	public static void main (String [] args) {
+		int STARTINGHANDSIZE = 7;
 		int cardAsked = 0;
 		int numCardAsked = 0;
 		int temp = 0;
@@ -20,7 +21,6 @@ class GoFish {
 		Player play1 = new Hplayer();
  		Player comp = new Cplayer();
 		Deck deck = new Deck();
-		Jokes jokes = new Jokes();
 		
 		int turn = 0;
 		
@@ -32,7 +32,7 @@ class GoFish {
 		System.out.println(deck);
 		
 		// deal everyone cards
-		for (int i=0; i<7; i++) {
+		for (int i=0; i<STARTINGHANDSIZE; i++) {
 			play1.takecard(deck.give());
 			comp.takecard(deck.give());
 		}
@@ -53,9 +53,9 @@ class GoFish {
 			turnDone = false;
 			while(!turnDone) {
 			
-			// checks if the need to refill their hand from the deck
-			if (play1.getNumCards() <= 0 && deck.getCardsLeft() >= 7) {
-				for (int i=0; i<7; i++) {
+			// checks if necessary to refill their hand from the deck
+			if (play1.getNumCards() <= 0 && deck.getCardsLeft() >= STARTINGHANDSIZE) {
+				for (int i=0; i<STARTINGHANDSIZE; i++) {
 					play1.takecard(deck.give());
 				}
 			}
@@ -97,8 +97,8 @@ class GoFish {
 			while(!turnDone) {
 				
 			// checks if the need to refill their hand from the deck
-			if (comp.getNumCards() <= 0 && deck.getCardsLeft() >= 7) {
-				for (int i=0; i<7; i++) {
+			if (comp.getNumCards() <= 0 && deck.getCardsLeft() >= STARTINGHANDSIZE) {
+				for (int i=0; i<STARTINGHANDSIZE; i++) {
 					comp.takecard(deck.give());
 				}
 			}

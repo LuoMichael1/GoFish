@@ -14,9 +14,9 @@ abstract class Player {
 		hand[numCards] = card;
 		miniHand[card%13] += 1;
 		
-		System.out.println(numCards + "-----");
+		//System.out.println(numCards + "-----");
 		for (int o=0; o<13; o++) {
-			System.out.print(miniHand[o]);
+			//System.out.print(miniHand[o]);
 		}
 		
 		numCards++;
